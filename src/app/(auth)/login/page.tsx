@@ -59,7 +59,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             </button>
           </form>
           <p className="mt-4 text-sm text-slate-500">
-            Usa el usuario admin o vendedor que creaste en Supabase.
+            Ingrese su correo y contraseña para ingresar.
           </p>
         </div>
       </section>
