@@ -57,7 +57,7 @@ export default function Home() {
         </div>
 
         <footer className="border-t border-slate-200 pt-5 text-sm text-slate-500">
-          MVP local: primero armamos pantallas, luego conectamos Supabase.
+          MVP Zack
         </footer>
       </section>
     </main>
