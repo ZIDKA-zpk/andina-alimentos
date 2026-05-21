@@ -11,7 +11,7 @@ git add .
 git commit -m "MVP inicial Andina de Alimentos"
 ```
 
-Crea un repositorio vacío en GitHub y conecta el remoto:
+Crea un repositorio vacio en GitHub y conecta el remoto:
 
 ```powershell
 git remote add origin https://github.com/TU-USUARIO/andina-alimentos.git
@@ -26,7 +26,7 @@ git push -u origin main
 3. Importa el repositorio `andina-alimentos`.
 4. Framework Preset: Next.js.
 5. Build Command: `npm run build`.
-6. Output Directory: dejar vacío.
+6. Output Directory: dejar vacio.
 
 ## 3. Variables de entorno
 
@@ -39,7 +39,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_TU_CLAVE
 
 Los valores deben ser los mismos de tu `.env.local`.
 
-## 4. URLs de autenticación en Supabase
+## 4. URLs de autenticacion en Supabase
 
 En Supabase:
 
@@ -58,18 +58,18 @@ http://localhost:3000/auth/callback
 https://TU-PROYECTO.vercel.app/auth/callback
 ```
 
-Si luego agregas dominio propio, agrega también:
+Si luego agregas dominio propio, agrega tambien:
 
 ```txt
 https://TU-DOMINIO.com/auth/callback
 ```
 
-## 5. Probar producción
+## 5. Probar produccion
 
 1. Abre la URL de Vercel.
 2. Entra con `vendedor@andina.com`.
 3. Crea un pedido.
-4. Cierra sesión.
+4. Cierra sesion.
 5. Entra con `admin@andina.com`.
 6. Aprueba el pedido.
-7. Revisa que bajó el stock en `/admin/productos`.
+7. Revisa que bajo el stock en `/admin/productos`.
