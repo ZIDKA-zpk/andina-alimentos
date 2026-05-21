@@ -2,34 +2,19 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { z } from "zod";
 
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
-
-const itemSchema = z.object({
-  product_id: z.string().uuid(),
-  quantity: z.number().int().positive(),
-});
-
-const createOrderSchema = z.object({
-  items: z.array(itemSchema).min(1),
-  notes: z.string().max(500).optional(),
-});
+import {
+  createOrderInputSchema,
+  parseOrderItemsJson,
+} from "@/lib/validators/orders";
 
 export async function createOrder(formData: FormData) {
   await requireRole("seller");
 
-  let items: unknown;
-
-  try {
-    items = JSON.parse(formData.get("items")?.toString() || "[]");
-  } catch {
-    redirect("/productos?error=Pedido invalido");
-  }
-
-  const parsed = createOrderSchema.safeParse({
-    items,
+  const parsed = createOrderInputSchema.safeParse({
+    items: parseOrderItemsJson(formData.get("items")?.toString()),
     notes: formData.get("notes")?.toString(),
   });
 

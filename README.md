@@ -37,7 +37,16 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_tu_clave_publica
 ```powershell
 npm run dev
 npm run lint
+npm test
 npm run build
+```
+
+Si PowerShell bloquea `npm.ps1`, usar el ejecutable de Windows:
+
+```powershell
+npm.cmd test
+npm.cmd run lint
+npm.cmd run build
 ```
 
 ## Documentacion interna

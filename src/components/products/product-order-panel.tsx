@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { createOrder } from "@/actions/orders";
+import { calculateEstimatedOrderTotal } from "@/lib/orders/pricing";
 import { toMoney } from "@/lib/format";
 import type { ProductListItem } from "@/lib/data";
 
@@ -26,17 +27,7 @@ export function ProductOrderPanel({ products }: ProductOrderPanelProps) {
     [quantities],
   );
 
-  const estimatedTotal = selectedItems.reduce((total, item) => {
-    const product = products.find((candidate) => candidate.id === item.product_id);
-    const unitPrice = product?.promo_price ?? product?.base_price ?? 0;
-    const discount =
-      product?.discount_rules
-        .filter((rule) => rule.active && rule.min_qty <= item.quantity)
-        .sort((a, b) => b.discount_percent - a.discount_percent)[0]
-        ?.discount_percent ?? 0;
-
-    return total + item.quantity * unitPrice * (1 - discount / 100);
-  }, 0);
+  const estimatedTotal = calculateEstimatedOrderTotal(products, selectedItems);
 
   function setQuantity(productId: string, value: number) {
     setQuantities((current) => ({

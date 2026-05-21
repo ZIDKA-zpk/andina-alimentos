@@ -1,6 +1,12 @@
 import { redirect } from "next/navigation";
 
+import { getRoleHome } from "@/lib/auth-routes";
 import { createClient } from "@/lib/supabase/server";
+export {
+  getAllowedNextPath,
+  getRoleHome,
+  getSafeNextPath,
+} from "@/lib/auth-routes";
 import type { UserRole } from "@/types/domain";
 
 export type Profile = {
@@ -11,41 +17,6 @@ export type Profile = {
   role: UserRole;
   is_active: boolean;
 };
-
-const sellerRoutes = ["/dashboard", "/productos", "/pedidos"];
-
-export function getRoleHome(role: UserRole) {
-  return role === "admin" ? "/admin" : "/dashboard";
-}
-
-export function getSafeNextPath(next?: string | null) {
-  if (!next || !next.startsWith("/") || next.startsWith("//")) {
-    return null;
-  }
-
-  return next;
-}
-
-export function getAllowedNextPath(role: UserRole, next?: string | null) {
-  const safeNext = getSafeNextPath(next);
-
-  if (!safeNext) {
-    return getRoleHome(role);
-  }
-
-  if (role === "admin" && safeNext.startsWith("/admin")) {
-    return safeNext;
-  }
-
-  if (
-    role === "seller" &&
-    sellerRoutes.some((route) => safeNext.startsWith(route))
-  ) {
-    return safeNext;
-  }
-
-  return getRoleHome(role);
-}
 
 export async function getCurrentProfile() {
   const supabase = await createClient();

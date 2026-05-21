@@ -2,33 +2,15 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { z } from "zod";
 
 import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
-
-const productSchema = z.object({
-  base_price: z.coerce.number().min(0),
-  id: z.string().uuid(),
-  is_active: z.boolean(),
-  promo_price: z
-    .union([z.literal(""), z.coerce.number().min(0)])
-    .transform((value) => (value === "" ? null : value)),
-  stock_qty: z.coerce.number().int().min(0),
-}).superRefine((product, ctx) => {
-  if (product.promo_price !== null && product.promo_price > product.base_price) {
-    ctx.addIssue({
-      code: "custom",
-      message: "La promo no puede superar el precio base.",
-      path: ["promo_price"],
-    });
-  }
-});
+import { productFormSchema } from "@/lib/validators/products";
 
 export async function updateProduct(formData: FormData) {
   await requireRole("admin");
 
-  const parsed = productSchema.safeParse({
+  const parsed = productFormSchema.safeParse({
     base_price: formData.get("base_price"),
     id: formData.get("id"),
     is_active: formData.get("is_active") === "on",
