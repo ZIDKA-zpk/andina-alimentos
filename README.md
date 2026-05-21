@@ -38,6 +38,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_tu_clave_publica
 npm run dev
 npm run lint
 npm test
+npm run test:e2e
 npm run build
 ```
 
@@ -45,9 +46,18 @@ Si PowerShell bloquea `npm.ps1`, usar el ejecutable de Windows:
 
 ```powershell
 npm.cmd test
+npm.cmd run test:e2e
 npm.cmd run lint
 npm.cmd run build
 ```
+
+Para preparar las pruebas E2E la primera vez:
+
+```powershell
+npx playwright install chromium
+```
+
+Las pruebas E2E levantan Next.js automaticamente en `http://localhost:3000`.
 
 ## Documentacion interna
 
