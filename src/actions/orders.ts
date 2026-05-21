@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
+import { requireRole } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 
 const itemSchema = z.object({
@@ -17,6 +18,8 @@ const createOrderSchema = z.object({
 });
 
 export async function createOrder(formData: FormData) {
+  await requireRole("seller");
+
   let items: unknown;
 
   try {
@@ -51,6 +54,8 @@ export async function createOrder(formData: FormData) {
 }
 
 export async function approveOrder(formData: FormData) {
+  await requireRole("admin");
+
   const orderId = formData.get("order_id")?.toString();
 
   if (!orderId) {
@@ -72,6 +77,8 @@ export async function approveOrder(formData: FormData) {
 }
 
 export async function rejectOrder(formData: FormData) {
+  await requireRole("admin");
+
   const orderId = formData.get("order_id")?.toString();
 
   if (!orderId) {

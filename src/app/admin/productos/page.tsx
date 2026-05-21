@@ -36,7 +36,7 @@ export default async function AdminProductsPage({
               <div>
                 <p className="font-semibold text-slate-950">{product.name}</p>
                 <p className="text-sm text-slate-500">
-                  {product.sku} · Actual{" "}
+                  {product.sku} - Actual{" "}
                   {toMoney(product.promo_price ?? product.base_price)}
                 </p>
               </div>
