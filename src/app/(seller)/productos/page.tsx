@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+
 import { ProductOrderPanel } from "@/components/products/product-order-panel";
 import { FeedbackMessage } from "@/components/ui/feedback-message";
 import { getProducts } from "@/lib/data";
@@ -25,7 +27,10 @@ export default async function SellerProductsPage({
         <FeedbackMessage error={params.error} />
 
         {activeProducts.length ? (
-          <ProductOrderPanel products={activeProducts} />
+          <ProductOrderPanel
+            initialIdempotencyKey={randomUUID()}
+            products={activeProducts}
+          />
         ) : (
           <p className="mt-6 rounded-lg border border-slate-200 bg-white p-5 text-sm text-slate-600">
             No hay productos activos disponibles.

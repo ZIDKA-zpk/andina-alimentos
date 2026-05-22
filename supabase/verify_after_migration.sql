@@ -23,3 +23,20 @@ select
 from public.discount_rules rule
 join public.products product on product.id = rule.product_id
 order by product.sku, rule.min_qty;
+
+select column_name, data_type
+from information_schema.columns
+where table_schema = 'public'
+  and table_name = 'orders'
+  and column_name in ('idempotency_key', 'request_hash')
+order by column_name;
+
+select indexname
+from pg_indexes
+where schemaname = 'public'
+  and tablename = 'orders'
+  and indexname in (
+    'orders_seller_idempotency_key_uidx',
+    'orders_seller_pending_request_hash_uidx'
+  )
+order by indexname;

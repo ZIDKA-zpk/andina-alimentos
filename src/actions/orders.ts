@@ -14,16 +14,20 @@ export async function createOrder(formData: FormData) {
   await requireRole("seller");
 
   const parsed = createOrderInputSchema.safeParse({
+    idempotencyKey: formData.get("idempotency_key")?.toString(),
     items: parseOrderItemsJson(formData.get("items")?.toString()),
     notes: formData.get("notes")?.toString(),
   });
 
   if (!parsed.success) {
-    redirect("/productos?error=Pedido invalido");
+    redirect(
+      "/productos?error=No pudimos leer el pedido. Revisa las cantidades e intentalo nuevamente.",
+    );
   }
 
   const supabase = await createClient();
   const { error } = await supabase.rpc("create_order", {
+    p_idempotency_key: parsed.data.idempotencyKey,
     p_items: parsed.data.items,
     p_notes: parsed.data.notes ?? null,
   });
@@ -35,7 +39,7 @@ export async function createOrder(formData: FormData) {
   revalidatePath("/productos");
   revalidatePath("/pedidos");
   revalidatePath("/admin/pedidos");
-  redirect("/pedidos?success=Pedido creado");
+  redirect("/pedidos?success=Pedido recibido correctamente");
 }
 
 export async function approveOrder(formData: FormData) {

@@ -6,6 +6,7 @@ export const orderItemSchema = z.object({
 });
 
 export const createOrderInputSchema = z.object({
+  idempotencyKey: z.string().uuid(),
   items: z.array(orderItemSchema).min(1),
   notes: z.string().max(500).optional(),
 });
