@@ -39,6 +39,7 @@ export async function createOrder(formData: FormData) {
   revalidatePath("/productos");
   revalidatePath("/pedidos");
   revalidatePath("/admin/pedidos");
+  revalidatePath("/admin/productos");
   redirect("/pedidos?success=Pedido recibido correctamente");
 }
 
@@ -62,6 +63,7 @@ export async function approveOrder(formData: FormData) {
 
   revalidatePath("/admin/pedidos");
   revalidatePath("/admin/productos");
+  revalidatePath("/productos");
   redirect("/admin/pedidos?success=Pedido aprobado");
 }
 
@@ -86,5 +88,7 @@ export async function rejectOrder(formData: FormData) {
 
   revalidatePath("/admin/pedidos");
   revalidatePath("/pedidos");
+  revalidatePath("/productos");
+  revalidatePath("/admin/productos");
   redirect("/admin/pedidos?success=Pedido rechazado");
 }

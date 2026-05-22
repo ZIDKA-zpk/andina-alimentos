@@ -28,7 +28,7 @@ select column_name, data_type
 from information_schema.columns
 where table_schema = 'public'
   and table_name = 'orders'
-  and column_name in ('idempotency_key', 'request_hash')
+  and column_name in ('idempotency_key', 'request_hash', 'stock_reserved')
 order by column_name;
 
 select indexname
