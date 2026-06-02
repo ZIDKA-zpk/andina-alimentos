@@ -427,6 +427,12 @@ Pruebas E2E:
 tests/e2e/public-navigation.spec.ts
 ```
 
+Documento detallado:
+
+```txt
+docs/testing-strategy.md
+```
+
 Como defenderlo:
 
 ```txt

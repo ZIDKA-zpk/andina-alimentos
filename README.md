@@ -67,6 +67,7 @@ Las pruebas E2E levantan Next.js automaticamente en `http://localhost:3000`.
 - `docs/deployment-vercel.md`: despliegue en Vercel.
 - `docs/security-and-ops.md`: seguridad minima y operacion.
 - `docs/scaling-roadmap.md`: roadmap para escalar despues del MVP.
+- `docs/testing-strategy.md`: estrategia de pruebas y puerta de calidad.
 
 ## Base de datos
 
