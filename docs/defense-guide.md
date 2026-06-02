@@ -355,6 +355,12 @@ Que hace:
 RLS limita que puede ver o modificar cada usuario desde la base de datos.
 ```
 
+Documento de soporte:
+
+```txt
+docs/security-model.md
+```
+
 Ejemplos:
 
 ```txt

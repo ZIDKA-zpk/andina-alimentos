@@ -380,6 +380,7 @@ Aplicacion en el proyecto:
 Archivos:
 
 ```txt
+docs/security-model.md
 src/lib/auth.ts
 src/lib/auth-routes.ts
 src/lib/supabase/middleware.ts
