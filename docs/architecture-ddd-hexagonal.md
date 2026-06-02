@@ -242,6 +242,37 @@ ProductOrderPanel
 Esto permite probar la regla de negocio sin depender de React, Supabase ni
 Next.js.
 
+## Segundo caso aplicado
+
+Archivo:
+
+```txt
+src/domain/orders/status.ts
+```
+
+Regla de negocio:
+
+```txt
+Un pedido pendiente puede pasar a aprobado, rechazado o cancelado.
+Un pedido aprobado, rechazado o cancelado queda en estado final.
+```
+
+Pruebas:
+
+```txt
+src/domain/orders/status.test.ts
+```
+
+Uso en presentacion:
+
+```txt
+src/app/admin/pedidos/page.tsx
+```
+
+La pantalla de administracion ya no decide con una comparacion suelta de texto.
+Consulta al dominio si el pedido puede pasar de su estado actual a `approved` o
+`rejected`.
+
 ## Como defenderlo en exposicion
 
 Frase corta:

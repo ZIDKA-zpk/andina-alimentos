@@ -1,6 +1,8 @@
+import type { OrderStatus } from "@/domain/orders/status";
+
 export type UserRole = "admin" | "seller";
 
-export type OrderStatus = "pending" | "approved" | "rejected" | "cancelled";
+export type { OrderStatus };
 
 export type Product = {
   id: string;

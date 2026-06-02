@@ -1,5 +1,6 @@
 import { approveOrder, rejectOrder } from "@/actions/orders";
 import { FeedbackMessage } from "@/components/ui/feedback-message";
+import { canTransitionOrderStatus } from "@/domain/orders/status";
 import { getAdminOrders } from "@/lib/data";
 import { formatDate, toMoney } from "@/lib/format";
 
@@ -62,26 +63,39 @@ export default async function AdminOrdersPage({
                   {toMoney(order.total)}
                 </p>
                 <div className="flex gap-2">
-                  {order.status === "pending" ? (
+                  {canTransitionOrderStatus(order.status, "approved") ||
+                  canTransitionOrderStatus(order.status, "rejected") ? (
                     <>
-                      <form action={approveOrder} className="flex-1">
-                        <input name="order_id" type="hidden" value={order.id} />
-                        <button
-                          className="h-10 w-full rounded-md bg-emerald-700 text-sm font-semibold text-white hover:bg-emerald-800"
-                          type="submit"
-                        >
-                          Aprobar
-                        </button>
-                      </form>
-                      <form action={rejectOrder} className="flex-1">
-                        <input name="order_id" type="hidden" value={order.id} />
-                        <button
-                          className="h-10 w-full rounded-md border border-slate-300 text-sm font-semibold text-slate-700 hover:border-red-500"
-                          type="submit"
-                        >
-                          Rechazar
-                        </button>
-                      </form>
+                      {canTransitionOrderStatus(order.status, "approved") ? (
+                        <form action={approveOrder} className="flex-1">
+                          <input
+                            name="order_id"
+                            type="hidden"
+                            value={order.id}
+                          />
+                          <button
+                            className="h-10 w-full rounded-md bg-emerald-700 text-sm font-semibold text-white hover:bg-emerald-800"
+                            type="submit"
+                          >
+                            Aprobar
+                          </button>
+                        </form>
+                      ) : null}
+                      {canTransitionOrderStatus(order.status, "rejected") ? (
+                        <form action={rejectOrder} className="flex-1">
+                          <input
+                            name="order_id"
+                            type="hidden"
+                            value={order.id}
+                          />
+                          <button
+                            className="h-10 w-full rounded-md border border-slate-300 text-sm font-semibold text-slate-700 hover:border-red-500"
+                            type="submit"
+                          >
+                            Rechazar
+                          </button>
+                        </form>
+                      ) : null}
                     </>
                   ) : (
                     <span className="rounded-md bg-slate-100 px-3 py-2 text-sm font-medium text-slate-600">
