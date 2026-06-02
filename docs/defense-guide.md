@@ -313,6 +313,7 @@ operacion real del sistema.
 Archivos:
 
 ```txt
+docs/database-design.md
 supabase/migrations/202605190001_initial_schema.sql
 supabase/migrations/202605220001_order_safety.sql
 supabase/migrations/202605220002_stock_reservation.sql

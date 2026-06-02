@@ -331,6 +331,12 @@ Migracion principal:
 supabase/migrations/202605190001_initial_schema.sql
 ```
 
+Documento detallado:
+
+```txt
+docs/database-design.md
+```
+
 Relaciones:
 
 ```txt
