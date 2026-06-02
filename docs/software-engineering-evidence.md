@@ -466,6 +466,12 @@ Decision actual:
 El MVP no expone una API REST publica.
 ```
 
+Documento detallado:
+
+```txt
+docs/api-and-integration-decisions.md
+```
+
 Tecnica usada:
 
 ```txt

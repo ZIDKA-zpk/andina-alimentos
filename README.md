@@ -61,6 +61,7 @@ Las pruebas E2E levantan Next.js automaticamente en `http://localhost:3000`.
 
 ## Documentacion interna
 
+- `docs/api-and-integration-decisions.md`: decisiones sobre Server Actions, RPC y REST futura.
 - `docs/architecture-ddd-hexagonal.md`: aplicacion de DDD y arquitectura hexagonal.
 - `docs/database-design.md`: modelo relacional, RLS, RPC y reglas de stock.
 - `docs/defense-guide.md`: guia para defender los flujos y decisiones del proyecto.

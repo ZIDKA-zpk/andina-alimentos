@@ -468,6 +468,12 @@ Porque el MVP es una web full stack con Next.js. Server Actions y RPC son mas
 directos. REST se agregaria si una app externa necesita consumir el sistema.
 ```
 
+Documento de soporte:
+
+```txt
+docs/api-and-integration-decisions.md
+```
+
 ### Como evitan pedidos duplicados?
 
 ```txt
