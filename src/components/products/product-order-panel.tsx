@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useFormStatus } from "react-dom";
 
 import { createOrder } from "@/actions/orders";
-import { calculateEstimatedOrderTotal } from "@/lib/orders/pricing";
+import { calculateEstimatedOrderTotal } from "@/application/orders/calculate-order-estimate";
 import { toMoney } from "@/lib/format";
 import type { ProductListItem } from "@/lib/data";
 

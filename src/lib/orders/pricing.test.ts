@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { calculateEstimatedOrderTotal } from "@/lib/orders/pricing";
+import { calculateEstimatedOrderTotal } from "@/application/orders/calculate-order-estimate";
 import type { ProductListItem } from "@/lib/data";
 
 const products: ProductListItem[] = [
