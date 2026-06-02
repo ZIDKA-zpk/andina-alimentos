@@ -62,6 +62,7 @@ Las pruebas E2E levantan Next.js automaticamente en `http://localhost:3000`.
 ## Documentacion interna
 
 - `docs/architecture-ddd-hexagonal.md`: aplicacion de DDD y arquitectura hexagonal.
+- `docs/software-engineering-evidence.md`: evidencias de conceptos del curso aplicados al proyecto.
 - `docs/deployment-vercel.md`: despliegue en Vercel.
 - `docs/security-and-ops.md`: seguridad minima y operacion.
 - `docs/scaling-roadmap.md`: roadmap para escalar despues del MVP.
