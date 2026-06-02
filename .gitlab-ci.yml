@@ -1,0 +1,30 @@
+stages:
+  - quality
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+quality_gate:
+  stage: quality
+  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - export NEXT_PUBLIC_SUPABASE_URL="${NEXT_PUBLIC_SUPABASE_URL:-https://example.supabase.co}"
+    - export NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:-sb_publishable_ci_placeholder}"
+    - npm ci
+  script:
+    - npm run lint
+    - npm test
+    - npm run test:e2e
+    - npm run build
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - playwright-report/
+      - test-results/

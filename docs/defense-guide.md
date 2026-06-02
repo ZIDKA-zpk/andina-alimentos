@@ -388,6 +388,7 @@ consulta del frontend.
 Archivos:
 
 ```txt
+docs/ci-cd-quality-gates.md
 src/lib/auth-routes.test.ts
 src/lib/format.test.ts
 src/lib/orders/pricing.test.ts
@@ -417,6 +418,14 @@ Frase para defender:
 ```txt
 Tenemos pruebas unitarias para reglas y validaciones, E2E para navegacion real,
 lint para calidad de codigo y build para verificar produccion.
+```
+
+Frase para defender CI/CD:
+
+```txt
+Ademas de correr pruebas localmente, el repositorio tiene pipelines en GitHub y
+GitLab. Funcionan como gates de calidad: instalan dependencias, ejecutan lint,
+unit tests, E2E y build antes de aceptar cambios.
 ```
 
 ## 13. Deploy
@@ -514,7 +523,8 @@ build de produccion.
 9. Mostrar `src/domain/orders/pricing.ts`.
 10. Mostrar `docs/software-engineering-evidence.md`.
 11. Mostrar `docs/git-workflow.md`.
-12. Ejecutar:
+12. Mostrar `docs/ci-cd-quality-gates.md`.
+13. Ejecutar:
 
 ```powershell
 npm.cmd run test:all
