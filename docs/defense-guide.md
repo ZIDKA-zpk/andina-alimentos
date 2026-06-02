@@ -500,7 +500,8 @@ build de produccion.
 7. Mostrar admin/vendedores.
 8. Mostrar `src/domain/orders/pricing.ts`.
 9. Mostrar `docs/software-engineering-evidence.md`.
-10. Ejecutar:
+10. Mostrar `docs/git-workflow.md`.
+11. Ejecutar:
 
 ```powershell
 npm.cmd run test:all

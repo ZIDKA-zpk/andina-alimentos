@@ -64,6 +64,7 @@ Las pruebas E2E levantan Next.js automaticamente en `http://localhost:3000`.
 - `docs/architecture-ddd-hexagonal.md`: aplicacion de DDD y arquitectura hexagonal.
 - `docs/database-design.md`: modelo relacional, RLS, RPC y reglas de stock.
 - `docs/defense-guide.md`: guia para defender los flujos y decisiones del proyecto.
+- `docs/git-workflow.md`: flujo de ramas, commits, GitHub, GitLab y rollback.
 - `docs/software-engineering-evidence.md`: evidencias de conceptos del curso aplicados al proyecto.
 - `docs/deployment-vercel.md`: despliegue en Vercel.
 - `docs/security-and-ops.md`: seguridad minima y operacion.

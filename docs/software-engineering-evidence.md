@@ -174,6 +174,12 @@ El historial de Git muestra la evolucion del sistema y permite explicar que se
 agrego en cada etapa.
 ```
 
+Documento detallado:
+
+```txt
+docs/git-workflow.md
+```
+
 ## 5. Arquitectura de software
 
 Concepto:
