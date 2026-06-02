@@ -504,16 +504,17 @@ build de produccion.
 ## 15. Orden recomendado para explicar en vivo
 
 1. Mostrar README.
-2. Mostrar estructura de carpetas.
-3. Mostrar login.
-4. Mostrar productos y creacion de pedido.
-5. Mostrar stock reservado en Supabase o admin.
-6. Mostrar admin/pedidos.
-7. Mostrar admin/vendedores.
-8. Mostrar `src/domain/orders/pricing.ts`.
-9. Mostrar `docs/software-engineering-evidence.md`.
-10. Mostrar `docs/git-workflow.md`.
-11. Ejecutar:
+2. Mostrar `docs/project-learning-map.md`.
+3. Mostrar estructura de carpetas.
+4. Mostrar login.
+5. Mostrar productos y creacion de pedido.
+6. Mostrar stock reservado en Supabase o admin.
+7. Mostrar admin/pedidos.
+8. Mostrar admin/vendedores.
+9. Mostrar `src/domain/orders/pricing.ts`.
+10. Mostrar `docs/software-engineering-evidence.md`.
+11. Mostrar `docs/git-workflow.md`.
+12. Ejecutar:
 
 ```powershell
 npm.cmd run test:all
